@@ -21,23 +21,17 @@ public class StudentController {
 	// handler method to handle list of students and return mode and view
 	@GetMapping("/students")
 	public String listOfStudents( Model model ) {
-		model.addAttribute( "section", "Student Management Library" );
+		model.addAttribute( "section", "Student Management System" );
 		model.addAttribute( "students", studentService.getAllStudents());
 		return "students";
 	}
-	
-//	@GetMapping("/teachers")
-//	public String listOfTeachers( Model model ) {
-//		model.addAttribute( "section", "Teacher Management System" );
-//		model.addAttribute( "students", studentService.getAllStudents());
-//		return "students";
-//	}
 	
 	@GetMapping("/students/new")
 	public String createStudentForm( Model model ) {
 		
 		// create student object to hold student form data
 		Student student = new Student();
+		model.addAttribute( "section", "Student Management System" );
 		model.addAttribute( "student", student );
 		return "create_student";
 	}
@@ -50,6 +44,7 @@ public class StudentController {
 	
 	@GetMapping("/students/edit/{id}")
 	public String editStudentForm( @PathVariable Long id, Model model ) {
+		model.addAttribute( "section", "Student Management System" );
 		model.addAttribute ( "student", studentService.getStudentById( id ));
 		return "edit_student";
 	}
@@ -58,6 +53,8 @@ public class StudentController {
 	public String updateStudent( @PathVariable Long id, 
 								@ModelAttribute( "student" ) Student student, 
 								Model model ) {
+
+		model.addAttribute( "section", "Student Management System" );
 
 		// get student details by id
 		Student existingStudent = studentService.getStudentById( id );

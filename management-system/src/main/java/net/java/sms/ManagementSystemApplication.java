@@ -8,10 +8,10 @@ import net.java.sms.repository.StudentRepository;
 import net.java.sms.entity.Student;
 
 @SpringBootApplication
-public class StudentManagementSystemApplication implements CommandLineRunner {
+public class ManagementSystemApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
-		SpringApplication.run(StudentManagementSystemApplication.class, args);
+		SpringApplication.run(ManagementSystemApplication.class, args);
 	}
 
 	@Autowired
